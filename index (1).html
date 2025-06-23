@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crutch Media - Cinematic & Animation Portfolio</title>
+    <link rel="icon" href="logo.png" />
+    <style>
+      :root {
+        --accent: #6c5ce7;
+        --bg: #1e1e2f;
+        --text: #ffffff;
+        --card: #2a2a3d;
+        --hover: #7f70f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      header {
+        text-align: center;
+        padding: 4rem 1rem 0;
+      }
+
+      .logo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+
+        img {
+          width: 100%;
+        }
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 0.5rem 0;
+      }
+
+      section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .gallery-item {
+        background: var(--card);
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(127, 112, 245, 0.4);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      form {
+        background: var(--card);
+        padding: 2rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      input,
+      textarea,
+      button {
+        padding: 0.75rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      input,
+      textarea {
+        background: #f0f0f0;
+        color: #000;
+      }
+
+      button {
+        background: var(--accent);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: var(--hover);
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      hr {
+        width: 868px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><img src="logo.png" /></div>
+      <h1>Crutch Media</h1>
+      <p>Cinematic & Animation Works</p>
+    </header>
+
+    <hr />
+
+    <section>
+      <h2>Previous Works</h2>
+      <div class="gallery">
+        <div
+          class="gallery-item"
+          onclick="window.open('https://youtu.be/S123YTukYNE')"
+        >
+          <img src="Clap_Studios_Logo.png" alt="Work 1" />
+          <p>Short Animation: <strong>Clap Studios Intro</strong></p>
+        </div>
+        <div
+          class="gallery-item"
+          onclick="window.open('https://youtu.be/S2o_FNEPBec')"
+        >
+          <img src="OLGoC_Still.png" alt="Work 2" />
+          <p>Short Film: <strong>One Last Game of Chess</strong></p>
+        </div>
+        <div
+          class="gallery-item"
+          onclick="window.open('https://youtu.be/LlgNMq08gTI')"
+        >
+          <img src="maxresdefault.png" alt="Work 3" />
+          <p>
+            Music Video: <strong>We Suffer In Silence by GlitcheCalKatt</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Contact Me for Commissions</h2>
+      <form onsubmit="handleMailto(event)">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea
+          id="message"
+          placeholder="Tell me what you need..."
+          rows="6"
+          required
+        ></textarea>
+        <button type="submit">Send Email</button>
+      </form>
+    </section>
+
+    <footer>&copy; 2025 Tyler Crutchley. All rights reserved.</footer>
+
+    <script>
+      function handleMailto(event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const subject = encodeURIComponent("Commission Request from " + name);
+        const body = encodeURIComponent(
+          `From: ${name}\nEmail: ${email}\n\n${message}`
+        );
+        window.location.href = `mailto:tylercrutchley@crutchmediaserver.xyz?subject=${subject}&body=${body}`;
+      }
+    </script>
+  </body>
+</html>
